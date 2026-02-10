@@ -1,0 +1,28 @@
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "MCP Server for AI Agents"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=3.0.0b1",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.12.0",
+    "python-json-logger>=4.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.0",
+]
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+ignore_missing_imports = true
+explicit_package_bases = true
+namespace_packages = true
+
+[tool.ruff.lint]
+ignore = ["E501"]
+extend-select = ["E", "I", "F", "G", "N", "T201", "T203"]
