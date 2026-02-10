@@ -27,7 +27,7 @@ mypy:
 
 .PHONY: mcp
 mcp:
-	uvicorn main:app --reload --host localhost --port 8005 --log-level info
+	uv run uvicorn main:app --reload --host localhost --port 8005 --log-level info
 
 .PHONY: inspect
 inspect:
