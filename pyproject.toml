@@ -5,10 +5,12 @@ description = "MCP Server for AI Agents"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "aiohttp>=3.13.3",
     "fastmcp>=3.0.0b1",
     "pydantic>=2.12.5",
     "pydantic-settings>=2.12.0",
     "python-json-logger>=4.0.0",
+    "tenacity>=9.1.4",
 ]
 
 [dependency-groups]

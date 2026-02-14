@@ -5,6 +5,7 @@ from typing import Any, Dict, Union
 
 from pydantic import BaseModel
 from pythonjsonlogger.json import JsonFormatter
+from tenacity import RetryCallState
 
 logging.getLogger("weasyprint").setLevel(logging.WARNING)
 logging.getLogger("weasyprint").propagate = False
@@ -66,3 +67,16 @@ def get_logger() -> logging.Logger:
     logger.addHandler(handler)
     __logger = logger
     return logger
+
+
+logger = get_logger()
+
+
+def log_before_retrying(retry_state: RetryCallState) -> None:
+    logger.error(
+        "Retrying",
+        extra={
+            "func_name": retry_state.fn.__name__ if retry_state.fn else "Unknown",
+            "attempt": retry_state.attempt_number,
+        },
+    )
