@@ -14,6 +14,9 @@ class Settings(BaseSettings):
     ENV: str = "local"
     DEBUG: int = 1
 
+    SERPER_API_KEY: str = ""
+    MAX_RETRIES: int = 3
+
     @field_validator("DEBUG", mode="before")
     @classmethod
     def validate_debug(cls, v: str) -> int:
