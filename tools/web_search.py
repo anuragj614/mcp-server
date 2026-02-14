@@ -33,6 +33,10 @@ class SearchResult(BaseModel):
     before_sleep=log_before_retrying,
 )
 async def get_serper_organic_search_results(query: str) -> list[SearchResult]:
+
+    if not query or not query.strip():
+        raise ValueError("Query cannot be empty")
+
     payload = json.dumps(
         {
             "q": query,
