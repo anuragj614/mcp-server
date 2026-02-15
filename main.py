@@ -22,7 +22,7 @@ async def health_check(_request: Request) -> JSONResponse:
 
 @mcp.custom_route("/", methods=["GET"])
 async def root_redirect(_request: Request) -> RedirectResponse:
-    return RedirectResponse(url="/sse")
+    return RedirectResponse(url="/mcp")
 
 
 app = mcp.http_app()
