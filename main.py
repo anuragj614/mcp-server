@@ -3,7 +3,7 @@ from pathlib import Path
 from fastmcp import FastMCP
 from fastmcp.server.providers import FileSystemProvider
 from starlette.requests import Request
-from starlette.responses import JSONResponse
+from starlette.responses import JSONResponse, RedirectResponse
 
 from settings import settings
 
@@ -15,9 +15,14 @@ provider = FileSystemProvider(
 mcp = FastMCP("MCP-Server", providers=[provider])
 
 
-@mcp.custom_route("/", methods=["GET"])
+@mcp.custom_route("/health", methods=["GET"])
 async def health_check(_request: Request) -> JSONResponse:
     return JSONResponse({"status": "ok"})
+
+
+@mcp.custom_route("/", methods=["GET"])
+async def root_redirect(_request: Request) -> RedirectResponse:
+    return RedirectResponse(url="/sse")
 
 
 app = mcp.http_app()
