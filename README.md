@@ -54,7 +54,7 @@ The server is live on Render:
 ### Using with MCP Inspector
 You can inspect the live server using the official MCP Inspector:
 ```bash
-npx @modelcontextprotocol/inspector --url https://mcp-server-6lxm.onrender.com/sse
+npx @modelcontextprotocol/inspector --url https://mcp-server-6lxm.onrender.com/mcp
 ```
 
 ### Using with Claude Desktop
@@ -64,7 +64,7 @@ Add the following to your `claude_desktop_config.json`:
   "mcpServers": {
     "render-mcp-server": {
       "command": "",
-      "url": "https://mcp-server-6lxm.onrender.com/sse"
+      "url": "https://mcp-server-6lxm.onrender.com/mcp"
     }
   }
 }
