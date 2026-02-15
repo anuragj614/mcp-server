@@ -21,7 +21,7 @@ jobs:
             - name: Install uv
               uses: astral-sh/setup-uv@v6
               with:
-                version: "latest"
+                version: "0.9.28"
             
             - name: Lock file check
               run: uv lock --check
