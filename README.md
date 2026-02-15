@@ -26,8 +26,8 @@ A Model Context Protocol (MCP) server that provides various tools for AI agents.
 
 ### Running the Server
 ```bash
-# Run the fastmcp server
-make mcp
+# Run the fastmcp server with docker
+make dev
 
 # Run the mcp client - MCP Inspector
 make inspect
