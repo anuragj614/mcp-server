@@ -4,8 +4,9 @@ help:
 	@echo "lint 						-- lint backend"
 	@echo "format 						-- format backend"
 	@echo "mypy 						-- type check backend"
-	@echo "mcp 							-- start mcp server"
+	@echo "dev 							-- start mcp development server"
 	@echo "inspect 						-- start mcp inspector"
+	@echo "clean 						-- clean up docker containers"
 
 
 .PHONY: install
@@ -25,9 +26,16 @@ format:
 mypy:
 	uv run mypy .
 
-.PHONY: mcp
-mcp:
-	uv run uvicorn main:app --reload --host localhost --port 8005 --log-level info
+.PHONY: dev
+dev:
+	@COMPOSE_MENU=false docker compose up --build --no-log-prefix
+	@echo "⌛ Waiting 5 seconds for docker services to be healthy..."
+	@sleep 5
+# 	uv run uvicorn main:app --reload --host localhost --port 8005 --log-level info
+
+.PHONY: clean
+clean:
+	docker compose down -v
 
 .PHONY: inspect
 inspect:

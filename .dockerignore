@@ -1,0 +1,31 @@
+# Git
+.git
+.gitignore
+
+# Python / UV
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment Variables (CRITICAL SECURITY)
+.env
+.env.local
+
+# Docker
+Dockerfile
+.dockerignore
+
+# IDE settings
+.vscode/
+.idea/
+
+# Testing/Misc
+tests/
+pytest_cache/
