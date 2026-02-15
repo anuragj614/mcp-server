@@ -5,9 +5,11 @@ from fastmcp.server.providers import FileSystemProvider
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
+from settings import settings
+
 provider = FileSystemProvider(
     root=Path(__file__).parent / "tools",
-    reload=True,
+    reload=bool(settings.DEBUG),
 )
 
 mcp = FastMCP("MCP-Server", providers=[provider])
