@@ -7,8 +7,6 @@ from starlette.responses import JSONResponse, RedirectResponse
 
 from settings import settings
 
-from settings import settings
-
 provider = FileSystemProvider(
     root=Path(__file__).parent / "tools",
     reload=bool(settings.DEBUG),
