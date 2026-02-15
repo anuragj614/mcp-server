@@ -46,6 +46,30 @@ Searches the web for a given query and returns organic search results including 
 - **Formatting**: `make format`
 - **Type Checking**: `make mypy`
 
+## Deployment
+
+The server is live on Render:
+**URL**: `https://mcp-server-6lxm.onrender.com`
+
+### Using with MCP Inspector
+You can inspect the live server using the official MCP Inspector:
+```bash
+npx @modelcontextprotocol/inspector --url https://mcp-server-6lxm.onrender.com/sse
+```
+
+### Using with Claude Desktop
+Add the following to your `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "render-mcp-server": {
+      "command": "",
+      "url": "https://mcp-server-6lxm.onrender.com/sse"
+    }
+  }
+}
+```
+
 ## Workflow
 
 > [!IMPORTANT]
